@@ -16,9 +16,10 @@ body {
 }
 
 main {
-  background: url(images/background.png);
-  width: 375px;
-  height: 812px;
+  background: url(images/backgroundMobile.png) no-repeat center/cover;
+  width: 100vw;
+  height: 100vh;
+  min-height: 812px;
 }
 
 .container {
@@ -36,6 +37,10 @@ main {
   width: 10rem;
   margin: 11.5rem auto 0;
   position: relative;
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
 }
 
 .avatar > img {
@@ -67,6 +72,12 @@ a {
   align-items: center;
 }
 
+a:hover {
+  cursor: pointer;
+  animation-name: bounce;
+  -moz-animation-name: bounce;
+}
+
 p {
   text-decoration: none;
   margin-top: 2rem;
@@ -83,4 +94,98 @@ ul {
   /*Definir as dimensões precisas do quadrado*/
   width: 48px;
   height: 48px;
+}
+
+.bounceButton {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+@media (min-width: 100px) {
+  /*Para tablet*/
+  /*Unica mudaça é o background na main*/
+  main {
+    background: url(images/backgroundMobile.png) no-repeat center/cover;
+    width: 100vw;
+    height: 100vh;
+    min-height: 812px;
+  }
+
+  @media (min-width: 960px) {
+    /*Para desktop*/
+    /*Mudanca da url do background*/
+    /*Necessario mudar a posição do avatar devido ao local do cracha, foi para 17.5rem*/
+    /*Necessario tambem mudar background-color para preto*/
+    * {
+      margin: 0;
+    }
+
+    html,
+    body {
+      --black: hsl(240, 6%, 13%);
+      --grey: hsl(240, 9%, 89%);
+      height: 100%;
+      font-family: 'Roboto';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      background: url(images/backgroundDesktop.png) no-repeat center/cover;
+      background-color: black;
+      width: 100vw;
+      height: 100vh;
+      min-height: 820px;
+    }
+
+    .avatar {
+      /*rem é uma medidda de tamanho que equivale ao número de pixeis
+    divido po 16 (10 rem = n/16, n= 160px)
+    */
+      width: 10rem;
+      margin: 17.25rem auto 0;
+      position: relative;
+    }
+  }
 }
