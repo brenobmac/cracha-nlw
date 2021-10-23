@@ -78,7 +78,9 @@ ul {
   padding: 0;
   justify-content: center;
   flex-direction: row;
+  /*Usado para centralizar a imagem do insta no meio (inspecionei o elemento e calculei os pixeis)*/
   margin-left: 101px;
+  /*Definir as dimensões precisas do quadrado*/
   width: 48px;
   height: 48px;
 }
