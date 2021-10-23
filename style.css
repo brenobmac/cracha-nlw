@@ -78,4 +78,7 @@ ul {
   padding: 0;
   justify-content: center;
   flex-direction: row;
+  margin-left: 101px;
+  width: 48px;
+  height: 48px;
 }
